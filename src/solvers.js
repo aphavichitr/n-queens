@@ -21,8 +21,8 @@ window.findNRooksSolution = function(n) {
   var rooks = 0;
 
   //try all next position, if rook can be placed with hasRowConflicts and hasColConflicts
-  for (var col = 0; col < board.rows().length; col++) {
-    for (var row = 0; row < board.rows().length; row++) {
+  for (var col = 0; col < n; col++) {
+    for (var row = 0; row < n; row++) {
       board.togglePiece(row, col);
       rooks++;
       if (board.hasAnyRowConflicts() || board.hasAnyColConflicts() ) {
@@ -122,10 +122,8 @@ window.countNQueensSolutions = function(n) {
   var searchQueens = function(row) {
     //base case
     if (row === n) {
-      debugger;
       return solutionCount++;
     }
-
     //recursive case
     for (var col = 0; col < n; col++) {
       board.togglePiece(row, col);
